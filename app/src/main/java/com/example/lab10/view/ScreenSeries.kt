@@ -151,11 +151,16 @@ fun ContenidoSerieEditar(navController: NavHostController, servicio: SerieApiSer
                 scope.launch {
                     val objSerie = SerieModel(id, name, release_date, rating.toIntOrNull() ?: 0, category)
                     try {
-                        if (id == 0)
+                        val resp = if (id == 0)
                             servicio.insertSerie(objSerie)
                         else
                             servicio.updateSerie(id.toString(), objSerie)
-                        navController.navigate("series") // navega DESPUÉS de guardar
+
+                        if (resp.isSuccessful) {
+                            navController.navigate("series")
+                        } else {
+                            Log.e("SERIE-GRABAR", "Código ${resp.code()}: ${resp.errorBody()?.string()}")
+                        }
                     } catch (e: Exception) {
                         Log.e("SERIE-GRABAR", "Error al grabar: ${e.message}")
                     }
