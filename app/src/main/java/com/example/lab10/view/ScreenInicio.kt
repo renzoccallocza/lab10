@@ -1,4 +1,4 @@
-package com.tecsup.lab10.view
+package com.example.lab10.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

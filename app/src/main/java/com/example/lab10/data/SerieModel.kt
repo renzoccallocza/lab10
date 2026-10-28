@@ -1,4 +1,4 @@
-package com.tecsup.lab10.data
+package com.example.lab10.data
 
 import com.google.gson.annotations.SerializedName
 

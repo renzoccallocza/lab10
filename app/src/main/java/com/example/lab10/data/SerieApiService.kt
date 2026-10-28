@@ -1,4 +1,4 @@
-package com.tecsup.lab10.data
+package com.example.lab10.data
 
 import retrofit2.Response
 import retrofit2.http.Body
